@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextWing Systems — Salvar tiempo. Proteger vidas.</title>
+  <meta name="description" content="NextWing Systems by Honoré Labs desarrolla plataformas UAV modulares para misiones de emergencia, monitoreo, inspección y reconocimiento." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+
+  <header class="nav">
+    <a href="#home" class="brand">
+      <span class="mark">NX</span>
+      <span>
+        <strong>NextWing</strong>
+        <small>by Honoré Labs</small>
+      </span>
+    </a>
+
+    <nav>
+      <a href="#origin">Origen</a>
+      <a href="#system">Sistema</a>
+      <a href="#missions">Misiones</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="tag">Experimental UAV Program / MX</p>
+        <h1>
+          Llegar antes.
+          <span>Ver mejor.</span>
+          Decidir rápido.
+        </h1>
+        <p class="lead">
+          NextWing Systems desarrolla UAVs modulares, accesibles y reparables para
+          emergencias, monitoreo ambiental, inspección, agricultura de precisión y
+          reconocimiento en zonas difíciles.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#system">Explorar sistema</a>
+          <a class="btn secondary" href="#origin">Ver NF-X1</a>
+        </div>
+      </div>
+
+      <div class="cockpit">
+        <div class="radar">
+          <span class="sweep"></span>
+          <span class="dot d1"></span>
+          <span class="dot d2"></span>
+          <span class="dot d3"></span>
+          <span class="plane-icon">✦</span>
+        </div>
+
+        <div class="hud">
+          <div><span>MODE</span><strong>MISSION TEST</strong></div>
+          <div><span>AIRFRAME</span><strong>NF-X1</strong></div>
+          <div><span>NEXT</span><strong>TESTBED-1</strong></div>
+          <div><span>STATUS</span><strong>ITERATING</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <p>Frase central</p>
+      <h2>Salvar tiempo. Proteger vidas.</h2>
+      <div class="manifesto-grid">
+        <span>Modular</span>
+        <span>Reparable</span>
+        <span>Accesible</span>
+        <span>Documentado</span>
+        <span>Probado</span>
+        <span>Escalable</span>
+      </div>
+    </section>
+
+    <section id="origin" class="origin">
+      <div class="section-head">
+        <p class="tag">Prototype 01</p>
+        <h2>NF-X1 / Night Fury X1</h2>
+        <p>
+          El punto de origen: una aeronave real, hecha con foamboard, electrónica accesible
+          y control RC. No nació perfecto. Nació para probar, fallar, reparar y aprender.
+        </p>
+      </div>
+
+      <div class="flight-card">
+        <div class="aircraft-sketch">
+          <div class="body"></div>
+          <div class="main-wing"></div>
+          <div class="tail-wing"></div>
+          <div class="nose"></div>
+          <div class="prop"></div>
+        </div>
+
+        <div class="flight-data">
+          <h3>Primeras validaciones</h3>
+          <ul>
+            <li><strong>Construcción:</strong> foamboard, alas reparables y electrónica accesible.</li>
+            <li><strong>Control:</strong> plataforma RC con aprendizaje de estabilidad y superficies de mando.</li>
+            <li><strong>Campo:</strong> pruebas reales, vuelos iniciales y registro de fallas.</li>
+            <li><strong>Aprendizaje:</strong> cableado, peso, vibración, configuración y reparabilidad.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="system" class="system">
+      <div class="section-head inverted">
+        <p class="tag">NextWing Operating System</p>
+        <h2>No es solo el avión. Es el sistema.</h2>
+        <p>
+          La originalidad de NextWing está en convertir una plataforma aérea en una herramienta
+          de misión: sensores, datos, módulos, operación y documentación.
+        </p>
+      </div>
+
+      <div class="system-map">
+        <article>
+          <span>01</span>
+          <h3>Airframe</h3>
+          <p>NF-X1 como origen propio. Testbed-1 como plataforma VTOL de pruebas. NF-X2 como arquitectura futura.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>Mission Bay</h3>
+          <p>Bahía modular para cámaras, sensores, GPS, telemetría y payloads intercambiables.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Flight Data</h3>
+          <p>Bitácora de duración, batería, fallas, ubicación, condiciones de vuelo y resultados de misión.</p>
+        </article>
+
+        <article>
+          <span>04</span>
+          <h3>Field Ops</h3>
+          <p>Checklists, protocolos, pruebas seguras, escenarios simulados y reportes post-vuelo.</p>
+        </article>
+      </div>
+
+      <div class="testbed-banner">
+        <div>
+          <p class="tag">Prototype 02</p>
+          <h3>NextWing Testbed-1</h3>
+        </div>
+        <p>
+          Plataforma VTOL basada en un diseño externo, usada honestamente como banco de pruebas
+          para acelerar la validación de módulos, navegación y operación de misión.
+        </p>
+      </div>
+    </section>
+
+    <section id="missions" class="missions">
+      <div class="section-head">
+        <p class="tag">Mission Modules</p>
+        <h2>Un UAV. Diferentes formas de ayudar.</h2>
+      </div>
+
+      <div class="mission-stack">
+        <article class="mission">
+          <div class="mission-number">01</div>
+          <div>
+            <h3>Emergencias y desastres</h3>
+            <p>Reconocimiento rápido para observar zonas afectadas, reducir incertidumbre y apoyar decisiones iniciales.</p>
+          </div>
+          <span>Response</span>
+        </article>
+
+        <article class="mission">
+          <div class="mission-number">02</div>
+          <div>
+            <h3>Búsqueda y reconocimiento</h3>
+            <p>Exploración visual de áreas abiertas o difíciles para localizar puntos de interés más rápido.</p>
+          </div>
+          <span>Search</span>
+        </article>
+
+        <article class="mission">
+          <div class="mission-number">03</div>
+          <div>
+            <h3>Inspección de infraestructura</h3>
+            <p>Revisión de caminos, techos, postes o estructuras sin acercar primero a una persona al riesgo.</p>
+          </div>
+          <span>Inspect</span>
+        </article>
+
+        <article class="mission">
+          <div class="mission-number">04</div>
+          <div>
+            <h3>Monitoreo ambiental y agricultura</h3>
+            <p>Observación de terreno, cultivos y zonas naturales con datos visuales o sensores básicos.</p>
+          </div>
+          <span>Monitor</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div>
+        <p class="tag">What makes it credible</p>
+        <h2>La ventaja no es prometer. Es probar.</h2>
+      </div>
+
+      <div class="proof-grid">
+        <div>
+          <strong>01</strong>
+          <p>Prototipo físico construido.</p>
+        </div>
+        <div>
+          <strong>02</strong>
+          <p>Pruebas reales de campo.</p>
+        </div>
+        <div>
+          <strong>03</strong>
+          <p>Fallas documentables.</p>
+        </div>
+        <div>
+          <strong>04</strong>
+          <p>Ruta técnica hacia VTOL.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+      <div class="section-head">
+        <p class="tag">Roadmap</p>
+        <h2>De idea a plataforma validada</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="line"></div>
+
+        <article>
+          <span>01</span>
+          <h3>NF-X1</h3>
+          <p>Construcción, pruebas iniciales, fallas, reparación y documentación.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>Testbed-1</h3>
+          <p>VTOL externo como banco de pruebas con atribución clara y modificaciones propias.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Módulos</h3>
+          <p>GPS, telemetría, cámara, sensores, mission bay y reportes de misión.</p>
+        </article>
+
+        <article>
+          <span>04</span>
+          <h3>NF-X2</h3>
+          <p>Plataforma propia madura basada en datos, necesidades reales y validación técnica.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ethics">
+      <p class="tag">Honest engineering</p>
+      <h2>Transparencia como parte del diseño.</h2>
+      <p>
+        Si NextWing usa una plataforma comprada como testbed, se dirá claramente.
+        No se reclamará como propio el diseño completo de una aeronave externa.
+        La innovación estará en la integración, sensores, electrónica, software de misión,
+        documentación, datos de vuelo y adaptación a problemas reales.
+      </p>
+    </section>
+
+    <section id="contact" class="contact">
+      <p class="tag">Build the next wing</p>
+      <h2>NextWing Systems by Honoré Labs</h2>
+      <p>
+        Proyecto UAV experimental en desarrollo. Abierto a mentoría, colaboración técnica,
+        validación de casos de uso, eventos de innovación y oportunidades para crecer.
+      </p>
+
+      <div class="contact-card">
+        <span>Contacto provisional</span>
+        <a href="mailto:contacto@honorelabs.com">contacto@honorelabs.com</a>
+        <small>Cambia este correo antes de publicar.</small>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Honoré Labs — NextWing Systems. Salvar tiempo. Proteger vidas.</p>
+  </footer>
+</body>
+</html>
