@@ -1,14 +1,15 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).contact;
+---
+
 <section id="contact" class="contact">
-  <p class="tag">Build the next wing</p>
-  <h2>NextWing Systems by Honoré Labs</h2>
-  <p>
-    Proyecto UAV experimental en desarrollo. Abierto a mentoría, colaboración técnica,
-    validación de casos de uso, eventos de innovación y oportunidades para crecer.
-  </p>
+  <p class="tag">{t.tag}</p>
+  <h2>{t.title}</h2>
+  <p>{t.text}</p>
 
   <div class="contact-card">
-    <span>Contacto provisional</span>
-    <a href="mailto:contacto@honorelabs.com">contacto@honorelabs.com</a>
-    <small>Cambia este correo antes de publicar.</small>
+    <span>{t.cardLabel}</span>
+    <a href={`mailto:${t.email}`}>{t.email}</a>
   </div>
 </section>

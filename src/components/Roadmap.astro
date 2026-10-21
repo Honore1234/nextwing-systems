@@ -1,34 +1,23 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).roadmap;
+---
+
 <section id="roadmap" class="roadmap">
   <div class="section-head">
-    <p class="tag">Roadmap</p>
-    <h2>De idea a plataforma validada</h2>
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
   </div>
 
   <div class="timeline">
     <div class="line"></div>
 
-    <article>
-      <span>01</span>
-      <h3>NF-X1</h3>
-      <p>Construcción, pruebas iniciales, fallas, reparación y documentación.</p>
-    </article>
-
-    <article>
-      <span>02</span>
-      <h3>Testbed-1</h3>
-      <p>VTOL externo como banco de pruebas con atribución clara y modificaciones propias.</p>
-    </article>
-
-    <article>
-      <span>03</span>
-      <h3>Módulos</h3>
-      <p>GPS, telemetría, cámara, sensores, mission bay y reportes de misión.</p>
-    </article>
-
-    <article>
-      <span>04</span>
-      <h3>NF-X2</h3>
-      <p>Plataforma propia madura basada en datos, necesidades reales y validación técnica.</p>
-    </article>
+    {t.steps.map((s) => (
+      <article>
+        <span>{s.num}</span>
+        <h3>{s.title}</h3>
+        <p>{s.text}</p>
+      </article>
+    ))}
   </div>
 </section>

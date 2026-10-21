@@ -1,17 +1,32 @@
+---
+import { getLocale, localePath, locales, useTranslations } from '../i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
 <header class="nav">
   <a href="#home" class="brand">
     <span class="mark">NX</span>
     <span>
-      <strong>NextWing</strong>
-      <small>by Honoré Labs</small>
+      <strong>{t.nav.brandName}</strong>
+      <small>{t.nav.brandBy}</small>
     </span>
   </a>
 
   <nav>
-    <a href="#origin">Origen</a>
-    <a href="#system">Sistema</a>
-    <a href="#missions">Misiones</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#contact">Contacto</a>
+    {t.nav.links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <span class="lang-switch" role="group" aria-label={t.nav.switchLabel}>
+      {locales.map((l) => (
+        <a
+          href={localePath(l)}
+          hreflang={l}
+          lang={l}
+          aria-current={l === locale ? 'page' : undefined}
+        >
+          {l.toUpperCase()}
+        </a>
+      ))}
+    </span>
   </nav>
 </header>

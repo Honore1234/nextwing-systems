@@ -1,24 +1,26 @@
 ---
+import '@fontsource-variable/inter';
 import '../styles/global.css';
+import { getLocale, localePath, locales, defaultLocale, useTranslations } from '../i18n';
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
 
 interface Props {
   title?: string;
   description?: string;
-  lang?: string;
 }
 
-const {
-  title = 'NextWing Systems — Salvar tiempo. Proteger vidas.',
-  description = 'NextWing Systems by Honoré Labs desarrolla plataformas UAV modulares para misiones de emergencia, monitoreo, inspección y reconocimiento.',
-  lang = 'es',
-} = Astro.props;
+const { title = t.meta.title, description = t.meta.description } = Astro.props;
 
-// Absolute URLs for Open Graph only work once `site` is set in astro.config.mjs.
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+// Absolute URLs (canonical, og:url, hreflang) need `site` in astro.config.mjs;
+// until then hreflang falls back to root-relative paths.
+const abs = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
+const canonical = Astro.site ? abs(Astro.url.pathname) : undefined;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,10 +29,17 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {canonical && <link rel="canonical" href={canonical} />}
 
+    <!-- Language alternates -->
+    {locales.map((l) => <link rel="alternate" hreflang={l} href={abs(localePath(l))} />)}
+    <link rel="alternate" hreflang="x-default" href={abs(localePath(defaultLocale))} />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="NextWing Systems" />
-    <meta property="og:locale" content="es_MX" />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    {locales.filter((l) => l !== locale).map((l) => (
+      <meta property="og:locale:alternate" content={useTranslations(l).meta.ogLocale} />
+    ))}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}

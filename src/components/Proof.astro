@@ -1,25 +1,20 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).proof;
+---
+
 <section class="proof">
   <div>
-    <p class="tag">What makes it credible</p>
-    <h2>La ventaja no es prometer. Es probar.</h2>
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
   </div>
 
   <div class="proof-grid">
-    <div>
-      <strong>01</strong>
-      <p>Prototipo físico construido.</p>
-    </div>
-    <div>
-      <strong>02</strong>
-      <p>Pruebas reales de campo.</p>
-    </div>
-    <div>
-      <strong>03</strong>
-      <p>Fallas documentables.</p>
-    </div>
-    <div>
-      <strong>04</strong>
-      <p>Ruta técnica hacia VTOL.</p>
-    </div>
+    {t.items.map((i) => (
+      <div>
+        <strong>{i.num}</strong>
+        <p>{i.text}</p>
+      </div>
+    ))}
   </div>
 </section>

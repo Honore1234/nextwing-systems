@@ -1,20 +1,22 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).hero;
+const [line1, line2, line3] = t.titleLines;
+---
+
 <section class="hero">
   <div class="hero-copy">
-    <p class="tag">Experimental UAV Program / MX</p>
+    <p class="tag">{t.tag}</p>
     <h1>
-      Llegar antes.
-      <span>Ver mejor.</span>
-      Decidir rápido.
+      {line1}
+      <span>{line2}</span>
+      {line3}
     </h1>
-    <p class="lead">
-      NextWing Systems desarrolla UAVs modulares, accesibles y reparables para
-      emergencias, monitoreo ambiental, inspección, agricultura de precisión y
-      reconocimiento en zonas difíciles.
-    </p>
+    <p class="lead">{t.lead}</p>
 
     <div class="hero-actions">
-      <a class="btn primary" href="#system">Explorar sistema</a>
-      <a class="btn secondary" href="#origin">Ver NF-X1</a>
+      <a class="btn primary" href="#system">{t.primaryCta}</a>
+      <a class="btn secondary" href="#origin">{t.secondaryCta}</a>
     </div>
   </div>
 
@@ -28,10 +30,7 @@
     </div>
 
     <div class="hud">
-      <div><span>MODE</span><strong>MISSION TEST</strong></div>
-      <div><span>AIRFRAME</span><strong>NF-X1</strong></div>
-      <div><span>NEXT</span><strong>TESTBED-1</strong></div>
-      <div><span>STATUS</span><strong>ITERATING</strong></div>
+      {t.hud.map((item) => <div><span>{item.label}</span><strong>{item.value}</strong></div>)}
     </div>
   </div>
 </section>

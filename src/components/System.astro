@@ -1,47 +1,30 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).system;
+---
+
 <section id="system" class="system">
   <div class="section-head inverted">
-    <p class="tag">NextWing Operating System</p>
-    <h2>No es solo el avión. Es el sistema.</h2>
-    <p>
-      La originalidad de NextWing está en convertir una plataforma aérea en una herramienta
-      de misión: sensores, datos, módulos, operación y documentación.
-    </p>
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
+    <p>{t.intro}</p>
   </div>
 
   <div class="system-map">
-    <article>
-      <span>01</span>
-      <h3>Airframe</h3>
-      <p>NF-X1 como origen propio. Testbed-1 como plataforma VTOL de pruebas. NF-X2 como arquitectura futura.</p>
-    </article>
-
-    <article>
-      <span>02</span>
-      <h3>Mission Bay</h3>
-      <p>Bahía modular para cámaras, sensores, GPS, telemetría y payloads intercambiables.</p>
-    </article>
-
-    <article>
-      <span>03</span>
-      <h3>Flight Data</h3>
-      <p>Bitácora de duración, batería, fallas, ubicación, condiciones de vuelo y resultados de misión.</p>
-    </article>
-
-    <article>
-      <span>04</span>
-      <h3>Field Ops</h3>
-      <p>Checklists, protocolos, pruebas seguras, escenarios simulados y reportes post-vuelo.</p>
-    </article>
+    {t.blocks.map((b) => (
+      <article>
+        <span>{b.num}</span>
+        <h3>{b.title}</h3>
+        <p>{b.text}</p>
+      </article>
+    ))}
   </div>
 
   <div class="testbed-banner">
     <div>
-      <p class="tag">Prototype 02</p>
-      <h3>NextWing Testbed-1</h3>
+      <p class="tag">{t.testbed.tag}</p>
+      <h3>{t.testbed.title}</h3>
     </div>
-    <p>
-      Plataforma VTOL basada en un diseño externo, usada honestamente como banco de pruebas
-      para acelerar la validación de módulos, navegación y operación de misión.
-    </p>
+    <p>{t.testbed.text}</p>
   </div>
 </section>

@@ -1,11 +1,13 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).origin;
+---
+
 <section id="origin" class="origin">
   <div class="section-head">
-    <p class="tag">Prototype 01</p>
-    <h2>NF-X1 / Night Fury X1</h2>
-    <p>
-      El punto de origen: una aeronave real, hecha con foamboard, electrónica accesible
-      y control RC. No nació perfecto. Nació para probar, fallar, reparar y aprender.
-    </p>
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
+    <p>{t.intro}</p>
   </div>
 
   <div class="flight-card">
@@ -18,12 +20,9 @@
     </div>
 
     <div class="flight-data">
-      <h3>Primeras validaciones</h3>
+      <h3>{t.dataTitle}</h3>
       <ul>
-        <li><strong>Construcción:</strong> foamboard, alas reparables y electrónica accesible.</li>
-        <li><strong>Control:</strong> plataforma RC con aprendizaje de estabilidad y superficies de mando.</li>
-        <li><strong>Campo:</strong> pruebas reales, vuelos iniciales y registro de fallas.</li>
-        <li><strong>Aprendizaje:</strong> cableado, peso, vibración, configuración y reparabilidad.</li>
+        {t.data.map((d) => <li><strong>{d.label}</strong> {d.text}</li>)}
       </ul>
     </div>
   </div>

@@ -1,3 +1,8 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).footer;
+---
+
 <footer>
-  <p>© 2026 Honoré Labs — NextWing Systems. Salvar tiempo. Proteger vidas.</p>
+  <p>{t.text}</p>
 </footer>

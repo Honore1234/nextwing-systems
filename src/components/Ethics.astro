@@ -1,10 +1,10 @@
+---
+import { useTranslations } from '../i18n';
+const t = useTranslations(Astro.currentLocale).ethics;
+---
+
 <section class="ethics">
-  <p class="tag">Honest engineering</p>
-  <h2>Transparencia como parte del diseño.</h2>
-  <p>
-    Si NextWing usa una plataforma comprada como testbed, se dirá claramente.
-    No se reclamará como propio el diseño completo de una aeronave externa.
-    La innovación estará en la integración, sensores, electrónica, software de misión,
-    documentación, datos de vuelo y adaptación a problemas reales.
-  </p>
+  <p class="tag">{t.tag}</p>
+  <h2>{t.title}</h2>
+  <p>{t.text}</p>
 </section>

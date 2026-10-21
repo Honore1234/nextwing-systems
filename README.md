@@ -4,12 +4,15 @@ Landing page for **NextWing Systems by Honoré Labs** — an experimental UAV pr
 building modular, accessible, repairable drones for emergency response, environmental monitoring,
 infrastructure inspection and search & reconnaissance.
 
-The site is a single static page (Spanish content) built with [Astro](https://astro.build).
+The site is a static, bilingual one-page site built with [Astro](https://astro.build).
 It ships plain HTML + CSS — no client-side JavaScript framework.
+The page is available in Spanish (default, `/`) and English (`/en/`).
 
 ## Requirements
 
 - Node.js **22.22 or newer** (see `.nvmrc`)
+
+The Inter font is self-hosted via `@fontsource-variable/inter` (no Google Fonts request).
 - npm
 
 ## Getting started
@@ -28,6 +31,10 @@ npm run preview  # serve the production build locally
 ├── public/
 │   └── favicon.svg         # placeholder "NX" favicon
 └── src/
+    ├── i18n/
+    │   ├── es.ts               # Spanish copy (default locale)
+    │   ├── en.ts               # English copy
+    │   └── index.ts            # locale helpers
     ├── layouts/
     │   └── BaseLayout.astro    # <head>: title, description, Open Graph, favicon
     ├── components/             # one component per page section
@@ -43,21 +50,23 @@ npm run preview  # serve the production build locally
     │   ├── Contact.astro
     │   └── Footer.astro
     ├── pages/
-    │   └── index.astro         # assembles the sections
+    │   ├── index.astro         # Spanish page (/)
+    │   └── en/index.astro      # English page (/en/)
     └── styles/
         └── global.css          # design tokens (:root variables) and all styles
 ```
 
 ## Editing content
 
-Each section lives in its own file under `src/components/`. Edit the text there; styles are
+All visible text lives in `src/i18n/es.ts` and `src/i18n/en.ts` (same shape, typed against
+the Spanish file). Each section's markup lives in its own file under `src/components/`. Styles are
 global and shared via `src/styles/global.css` (colors and spacing are defined as CSS variables
 in `:root`).
 
 ## Before publishing
 
 - Set `site` in `astro.config.mjs` to the real domain.
-- Replace the placeholder contact email in `src/components/Contact.astro`.
+- Confirm the contact email in `src/i18n/es.ts` / `en.ts`.
 - Replace `public/favicon.svg` with the final logo and add an Open Graph share image.
 
 ## Deploy
