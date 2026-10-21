@@ -27,7 +27,8 @@ npm run preview  # serve the production build locally
 ## Project structure
 
 ```text
-├── astro.config.mjs        # Astro config (set `site` before deploying)
+├── .github/workflows/deploy.yml  # GitHub Pages deployment
+├── astro.config.mjs        # Astro config (site, base, i18n)
 ├── public/
 │   └── favicon.svg         # placeholder "NX" favicon
 └── src/
@@ -65,11 +66,34 @@ in `:root`).
 
 ## Before publishing
 
-- Set `site` in `astro.config.mjs` to the real domain.
 - Confirm the contact email in `src/i18n/es.ts` / `en.ts`.
 - Replace `public/favicon.svg` with the final logo and add an Open Graph share image.
 
 ## Deploy
 
-`npm run build` outputs a fully static site in `dist/`, deployable to any static host
-(Vercel, Netlify, Cloudflare Pages, GitHub Pages, …).
+The site is published to **GitHub Pages** at <https://honore1234.github.io/nextwing-systems/>
+(English: <https://honore1234.github.io/nextwing-systems/en/>).
+
+`.github/workflows/deploy.yml` builds and deploys automatically on every push to `main` or
+`astro-migration` (or manually via *Actions → Deploy to GitHub Pages → Run workflow*).
+
+Because it is a GitHub *project* site, the build is served from a sub-path. This is set in
+`astro.config.mjs`:
+
+```js
+site: 'https://honore1234.github.io',
+base: '/nextwing-systems',
+```
+
+All internal links, the language switch, canonical / Open Graph / hreflang URLs, the favicon
+and CSS/font assets are derived from these two values (via `astro:i18n` helpers and
+`import.meta.env.BASE_URL`), so never hard-code root paths like `/favicon.svg`.
+
+### Moving to a custom domain later
+
+1. In `astro.config.mjs`, set `site` to the domain (e.g. `'https://nextwing.mx'`) and remove `base`.
+2. Add `public/CNAME` containing just the domain.
+3. Set the custom domain in *Settings → Pages* and point DNS at GitHub Pages.
+
+`npm run build` outputs a fully static site in `dist/`, so any other static host
+(Vercel, Netlify, Cloudflare Pages, …) works too.
