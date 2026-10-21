@@ -1,0 +1,10 @@
+Suelta aquí tus archivos con estos nombres exactos y la web los usa sola:
+
+hero.mp4      video de fondo del inicio (10-20 s, horizontal, sin audio, menos de 8 MB)
+hero.jpg      imagen del inicio (también sirve como póster del video)
+origin.jpg    foto del NF-X1
+testbed.jpg   foto o render del Testbed-1
+contact.jpg   foto final (opcional)
+
+Formatos: .jpg, .webp o .png para imágenes. Si un archivo no existe, la sección
+muestra un fondo de radar generado con CSS.

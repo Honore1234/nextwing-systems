@@ -5,28 +5,27 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 ---
 
-<header class="nav">
-  <a href="#home" class="brand">
-    <span class="mark">NX</span>
-    <span>
-      <strong>{t.nav.brandName}</strong>
-      <small>{t.nav.brandBy}</small>
-    </span>
+<header class="nav" id="nav">
+  <a href="#home" class="brand" aria-label={t.nav.brandName}>
+    <span class="brand-word">{t.nav.brandName}</span>
+    <span class="brand-by">{t.nav.brandBy}</span>
   </a>
 
   <nav>
-    {t.nav.links.map((link) => <a href={link.href}>{link.label}</a>)}
+    {t.nav.links.map((link) => <a class="nav-link" href={link.href}>{link.label}</a>)}
     <span class="lang-switch" role="group" aria-label={t.nav.switchLabel}>
       {locales.map((l) => (
-        <a
-          href={localePath(l)}
-          hreflang={l}
-          lang={l}
-          aria-current={l === locale ? 'page' : undefined}
-        >
+        <a href={localePath(l)} hreflang={l} lang={l} aria-current={l === locale ? 'page' : undefined}>
           {l.toUpperCase()}
         </a>
       ))}
     </span>
   </nav>
 </header>
+
+<script>
+  const nav = document.getElementById('nav');
+  const update = () => nav?.classList.toggle('is-solid', window.scrollY > 40);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+</script>

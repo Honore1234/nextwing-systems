@@ -1,36 +1,28 @@
 ---
 import { useTranslations } from '../i18n';
+import Media from './Media.astro';
 const t = useTranslations(Astro.currentLocale).hero;
-const [line1, line2, line3] = t.titleLines;
 ---
 
-<section class="hero">
-  <div class="hero-copy">
+<section class="panel hero">
+  <Media name="hero" glow="72% 38%" />
+
+  <div class="panel-body hero-copy">
     <p class="tag">{t.tag}</p>
-    <h1>
-      {line1}
-      <span>{line2}</span>
-      {line3}
-    </h1>
+    <h1>{t.titleLines.map((line) => <span>{line}</span>)}</h1>
     <p class="lead">{t.lead}</p>
-
-    <div class="hero-actions">
-      <a class="btn primary" href="#system">{t.primaryCta}</a>
-      <a class="btn secondary" href="#origin">{t.secondaryCta}</a>
+    <div class="actions">
+      <a class="btn" href="#system">{t.primaryCta}</a>
+      <a class="btn ghost" href="#origin">{t.secondaryCta}</a>
     </div>
   </div>
 
-  <div class="cockpit">
-    <div class="radar">
-      <span class="sweep"></span>
-      <span class="dot d1"></span>
-      <span class="dot d2"></span>
-      <span class="dot d3"></span>
-      <span class="plane-icon">✦</span>
-    </div>
-
-    <div class="hud">
-      {t.hud.map((item) => <div><span>{item.label}</span><strong>{item.value}</strong></div>)}
-    </div>
-  </div>
+  <dl class="hud">
+    {t.hud.map((item) => (
+      <div>
+        <dt>{item.label}</dt>
+        <dd>{item.value}</dd>
+      </div>
+    ))}
+  </dl>
 </section>

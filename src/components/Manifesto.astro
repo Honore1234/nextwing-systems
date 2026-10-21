@@ -3,10 +3,12 @@ import { useTranslations } from '../i18n';
 const t = useTranslations(Astro.currentLocale).manifesto;
 ---
 
-<section class="manifesto">
-  <p>{t.kicker}</p>
-  <h2>{t.title}</h2>
-  <div class="manifesto-grid">
-    {t.values.map((v) => <span>{v}</span>)}
+<section class="panel manifesto">
+  <div class="panel-body center">
+    <p class="tag">{t.kicker}</p>
+    <h2 class="display">{t.title}</h2>
+    <ul class="values">
+      {t.values.map((v) => <li>{v}</li>)}
+    </ul>
   </div>
 </section>

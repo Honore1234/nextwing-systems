@@ -1,0 +1,21 @@
+---
+// Fondo de sección. Si existe public/media/<name>.mp4 y/o .jpg/.webp/.png se usan solos;
+// si no existe nada, se muestra un fondo de radar generado con CSS.
+import fs from 'node:fs';
+import path from 'node:path';
+import { withBase } from '../i18n';
+
+interface Props { name: string; glow?: string; }
+const { name, glow = '50% 100%' } = Astro.props;
+
+const dir = path.join(process.cwd(), 'public', 'media');
+const has = (ext: string) => fs.existsSync(path.join(dir, `${name}.${ext}`));
+const imgExt = ['jpg', 'webp', 'png'].find(has);
+const video = has('mp4') ? withBase(`media/${name}.mp4`) : null;
+const image = imgExt ? withBase(`media/${name}.${imgExt}`) : null;
+---
+
+<div class:list={['media', !video && !image && 'media--empty']} style={`--glow:${glow}`} aria-hidden="true">
+  {video && <video src={video} poster={image ?? undefined} autoplay muted loop playsinline preload="metadata"></video>}
+  {!video && image && <img src={image} alt="" loading="lazy" />}
+</div>

@@ -1,15 +1,18 @@
 ---
 import { useTranslations } from '../i18n';
+import Media from './Media.astro';
 const t = useTranslations(Astro.currentLocale).contact;
 ---
 
-<section id="contact" class="contact">
-  <p class="tag">{t.tag}</p>
-  <h2>{t.title}</h2>
-  <p>{t.text}</p>
-
-  <div class="contact-card">
-    <span>{t.cardLabel}</span>
-    <a href={`mailto:${t.email}`}>{t.email}</a>
+<section id="contact" class="panel contact">
+  <Media name="contact" glow="50% 0%" />
+  <div class="panel-body center narrow">
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
+    <p class="lead">{t.text}</p>
+    <div class="actions">
+      <a class="btn" href={`mailto:${t.email}`}>{t.email}</a>
+    </div>
+    <p class="note">{t.cardLabel}</p>
   </div>
 </section>

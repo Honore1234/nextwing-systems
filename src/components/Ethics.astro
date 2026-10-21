@@ -3,8 +3,10 @@ import { useTranslations } from '../i18n';
 const t = useTranslations(Astro.currentLocale).ethics;
 ---
 
-<section class="ethics">
-  <p class="tag">{t.tag}</p>
-  <h2>{t.title}</h2>
-  <p>{t.text}</p>
+<section class="panel ethics">
+  <div class="panel-body center narrow">
+    <p class="tag">{t.tag}</p>
+    <h2>{t.title}</h2>
+    <p class="lead">{t.text}</p>
+  </div>
 </section>

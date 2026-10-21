@@ -3,22 +3,21 @@ import { useTranslations } from '../i18n';
 const t = useTranslations(Astro.currentLocale).missions;
 ---
 
-<section id="missions" class="missions">
-  <div class="section-head">
-    <p class="tag">{t.tag}</p>
-    <h2>{t.title}</h2>
-  </div>
+<section id="missions" class="panel missions">
+  <div class="panel-body">
+    <div class="head">
+      <p class="tag">{t.tag}</p>
+      <h2>{t.title}</h2>
+    </div>
 
-  <div class="mission-stack">
-    {t.items.map((m) => (
-      <article class="mission">
-        <div class="mission-number">{m.num}</div>
-        <div>
+    <div class="rows">
+      {t.items.map((m) => (
+        <article class="row">
           <h3>{m.title}</h3>
           <p>{m.text}</p>
-        </div>
-        <span>{m.badge}</span>
-      </article>
-    ))}
+          <span class="badge">{m.badge}</span>
+        </article>
+      ))}
+    </div>
   </div>
 </section>

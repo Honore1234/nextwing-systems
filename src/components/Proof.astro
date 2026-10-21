@@ -3,18 +3,14 @@ import { useTranslations } from '../i18n';
 const t = useTranslations(Astro.currentLocale).proof;
 ---
 
-<section class="proof">
-  <div>
-    <p class="tag">{t.tag}</p>
-    <h2>{t.title}</h2>
-  </div>
-
-  <div class="proof-grid">
-    {t.items.map((i) => (
-      <div>
-        <strong>{i.num}</strong>
-        <p>{i.text}</p>
-      </div>
-    ))}
+<section class="panel proof">
+  <div class="panel-body">
+    <div class="head">
+      <p class="tag">{t.tag}</p>
+      <h2 class="display">{t.title}</h2>
+    </div>
+    <ul class="checks">
+      {t.items.map((i) => <li>{i.text}</li>)}
+    </ul>
   </div>
 </section>

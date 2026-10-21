@@ -3,21 +3,21 @@ import { useTranslations } from '../i18n';
 const t = useTranslations(Astro.currentLocale).roadmap;
 ---
 
-<section id="roadmap" class="roadmap">
-  <div class="section-head">
-    <p class="tag">{t.tag}</p>
-    <h2>{t.title}</h2>
-  </div>
+<section id="roadmap" class="panel roadmap">
+  <div class="panel-body">
+    <div class="head">
+      <p class="tag">{t.tag}</p>
+      <h2>{t.title}</h2>
+    </div>
 
-  <div class="timeline">
-    <div class="line"></div>
-
-    {t.steps.map((s) => (
-      <article>
-        <span>{s.num}</span>
-        <h3>{s.title}</h3>
-        <p>{s.text}</p>
-      </article>
-    ))}
+    <ol class="timeline">
+      {t.steps.map((s, i) => (
+        <li class:list={{ done: i === 0 }}>
+          <span class="step">{s.num}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
   </div>
 </section>

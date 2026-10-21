@@ -1,29 +1,29 @@
 ---
 import { useTranslations } from '../i18n';
+import Media from './Media.astro';
 const t = useTranslations(Astro.currentLocale).origin;
 ---
 
-<section id="origin" class="origin">
-  <div class="section-head">
-    <p class="tag">{t.tag}</p>
-    <h2>{t.title}</h2>
-    <p>{t.intro}</p>
-  </div>
+<section id="origin" class="panel origin">
+  <Media name="origin" glow="20% 60%" />
 
-  <div class="flight-card">
-    <div class="aircraft-sketch">
-      <div class="body"></div>
-      <div class="main-wing"></div>
-      <div class="tail-wing"></div>
-      <div class="nose"></div>
-      <div class="prop"></div>
+  <div class="panel-body split">
+    <div>
+      <p class="tag">{t.tag}</p>
+      <h2>{t.title}</h2>
+      <p class="lead">{t.intro}</p>
     </div>
 
-    <div class="flight-data">
-      <h3>{t.dataTitle}</h3>
-      <ul>
-        {t.data.map((d) => <li><strong>{d.label}</strong> {d.text}</li>)}
-      </ul>
+    <div>
+      <h3 class="spec-title">{t.dataTitle}</h3>
+      <dl class="spec">
+        {t.data.map((d) => (
+          <div>
+            <dt>{d.label.replace(/:$/, '')}</dt>
+            <dd>{d.text}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   </div>
 </section>
